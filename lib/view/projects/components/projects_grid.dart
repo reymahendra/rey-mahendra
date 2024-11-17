@@ -17,21 +17,18 @@ class ProjectGrid extends StatelessWidget {
       gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: crossAxisCount, childAspectRatio: ratio),
       itemBuilder: (context, index) {
-        return Obx(() => AnimatedContainer(
+        return Obx(() =>  AnimatedContainer(
             duration: const Duration(milliseconds: 200),
             margin: const EdgeInsets.symmetric(
                 vertical: defaultPadding, horizontal: defaultPadding),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
-                gradient: const LinearGradient(colors: [
-                  secColor,
-                  secColor
-                ]),
+                color: bgColor,
                 boxShadow:  [
                   BoxShadow(
-                      color: secColor,
-                      offset: const Offset(2, 0),
-                      blurRadius: controller.hovers[index] ? 20 : 10,),
+                      color: Colors.black38,
+                      offset: const Offset(0, 0),
+                      blurRadius: controller.hovers[index] ? 2 : 5,),
                 ]),
             child: ProjectStack(index: index)
         ));

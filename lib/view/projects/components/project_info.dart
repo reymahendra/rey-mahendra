@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
 import 'package:flutter_portfolio/view/projects/components/project_deatail.dart';
 import 'package:get/get.dart';
 import '../../../model/project_model.dart';
@@ -12,7 +13,14 @@ class ProjectStack extends StatelessWidget {
   final int index;
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return Neumorphic(
+      style: NeumorphicStyle(
+        boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(30)),
+        depth: 8,
+        lightSource: LightSource.topLeft,
+        color: bgColor,
+      ),
+      child:  InkWell(
       onHover: (value) {
         controller.onHover(index, value);
       },
@@ -28,6 +36,7 @@ class ProjectStack extends StatelessWidget {
           duration: const Duration(milliseconds: 500),
           child: ProjectDetail(index: index,),
       ),
-    );
+    )
+    ); 
   }
 }

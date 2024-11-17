@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -9,25 +10,46 @@ class ContactIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return  Container(
       margin: const EdgeInsets.only(top: defaultPadding),
       child: Row(
         children: [
           const Spacer(),
-          IconButton(
+          Neumorphic(
+            style: NeumorphicStyle(
+        boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(30)),
+        depth: 8,
+        lightSource: LightSource.topLeft,
+        color: bgColor,
+      ),
+            child: IconButton(
               onPressed: () {
-                launchUrl(Uri.parse('https://linkedin.com/in/hamad-anwar'));
+                launchUrl(Uri.parse('https://www.linkedin.com/in/rey-mahendra-0894b9322/'));
               },
               icon: SvgPicture.asset(
                 'assets/icons/linkedin.svg',
+                // ignore: deprecated_member_use
                 color: Colors.black,
               )),
-          IconButton(
+          ),
+          
+          Neumorphic(
+            margin:EdgeInsets.fromLTRB(defaultPadding, 0, 0, 0) ,
+            style: NeumorphicStyle(
+        boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(30)),
+        depth: 8,
+        lightSource: LightSource.topLeft,
+        color: bgColor,
+      ),
+            child: IconButton(
               onPressed: () {
-                launchUrl(Uri.parse('https://github.com/hamad-anwar'));
+                launchUrl(Uri.parse('https://github.com/reymahendra'));
               },
               icon: SvgPicture.asset('assets/icons/github.svg',
+                  // ignore: deprecated_member_use
                   color: Colors.black)),
+          ),
+          
           const Spacer(),
         ],
       ),

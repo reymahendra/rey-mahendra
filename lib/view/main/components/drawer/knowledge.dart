@@ -11,6 +11,7 @@ class KnowledgeText extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: defaultPadding/2),
       child: Row(
         children: [
+          // ignore: deprecated_member_use
           SvgPicture.asset('assets/icons/check.svg', color: secColor,),
           const SizedBox(width: defaultPadding/2,),
           Text(knowledge),
